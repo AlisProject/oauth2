@@ -7,7 +7,7 @@
     <meta name="description" content="ALIS OAuth Document">
     
     
-    <link rel="preload" href="/oauth2/assets/css/0.styles.84940035.css" as="style"><link rel="preload" href="/oauth2/assets/js/app.e698d9b6.js" as="script"><link rel="preload" href="/oauth2/assets/js/6.7d459495.js" as="script"><link rel="prefetch" href="/oauth2/assets/js/10.a876fc82.js"><link rel="prefetch" href="/oauth2/assets/js/2.d8f505d4.js"><link rel="prefetch" href="/oauth2/assets/js/3.2b597c3d.js"><link rel="prefetch" href="/oauth2/assets/js/4.6f071433.js"><link rel="prefetch" href="/oauth2/assets/js/5.e9e32bb9.js"><link rel="prefetch" href="/oauth2/assets/js/7.490c7da5.js"><link rel="prefetch" href="/oauth2/assets/js/8.67031d25.js"><link rel="prefetch" href="/oauth2/assets/js/9.212ca126.js">
+    <link rel="preload" href="/oauth2/assets/css/0.styles.84940035.css" as="style"><link rel="preload" href="/oauth2/assets/js/app.35c48a3e.js" as="script"><link rel="preload" href="/oauth2/assets/js/6.be5a13f6.js" as="script"><link rel="prefetch" href="/oauth2/assets/js/10.a876fc82.js"><link rel="prefetch" href="/oauth2/assets/js/2.d8f505d4.js"><link rel="prefetch" href="/oauth2/assets/js/3.2b597c3d.js"><link rel="prefetch" href="/oauth2/assets/js/4.6f071433.js"><link rel="prefetch" href="/oauth2/assets/js/5.e9e32bb9.js"><link rel="prefetch" href="/oauth2/assets/js/7.490c7da5.js"><link rel="prefetch" href="/oauth2/assets/js/8.7d6ce8dc.js"><link rel="prefetch" href="/oauth2/assets/js/9.212ca126.js">
     <link rel="stylesheet" href="/oauth2/assets/css/0.styles.84940035.css">
   </head>
   <body>
@@ -25,8 +25,10 @@ grant_type=authorization_code
 &amp;code_verifier=7vN7KSmEl5qFeHeRZmfMsR7fl_BsluESjvl32W9el5A6WgsAbXCaqwK43BmXjs7cGw9hTQC9xmVb41xi8fL4CA
 </code></pre></div><ul><li>Authorization: Client IDと Client Secretを&quot;:&quot;(コロン)で連結し、Base64エンコードした値</li> <li>code: 手順1で取得した認可コード</li> <li>redirect_uri: <a href="/oauth2/authorization-url/">同意画面へのURL作成方法</a> で指定した redirect_uri</li> <li>code_verifier: <a href="/oauth2/authorization-url/">同意画面へのURL作成方法</a> で作成した code_verifier</li></ul> <h3 id="手順３：id-tokenの検証"><a href="#手順３：id-tokenの検証" aria-hidden="true" class="header-anchor">#</a> 手順３：ID Tokenの検証</h3> <p>ID Token の署名を検証します。検証方法については <a href="/oauth2/idtoken-verify/">ID Token の検証</a>を確認ください。</p> <h3 id="手順４：api-実行サンプル"><a href="#手順４：api-実行サンプル" aria-hidden="true" class="header-anchor">#</a> 手順４：API 実行サンプル</h3> <p>取得したアクセストークン(Access Token)を Authorization ヘッダに付与することで、API 実行を行えます。
 実行できる API は同意時に指定した scope によって異なります。詳細は<a href="/oauth2/scopes/">権限一覧</a>を確認ください。
-また、アクセストークンには有効期限が設定されています。再取得する場合は<a href="/oauth2/refresh-token/">アクセストークンの再取得</a>を参照してください</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code>  <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">fetch</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span> <span class="token punctuation">{</span>
-    method<span class="token punctuation">:</span> <span class="token string">&quot;POST&quot;</span><span class="token punctuation">,</span>
+APIの実行は <code>https://alis.to/oauth2api/</code> のパスに対して実施ください。
+また、アクセストークンには有効期限が設定されています。再取得する場合は<a href="/oauth2/refresh-token/">アクセストークンの再取得</a>を参照してください</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code>  <span class="token keyword">const</span> url <span class="token operator">=</span> <span class="token string">&quot;https://alis.to/oauth2api/me/info&quot;</span>
+  <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">fetch</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    method<span class="token punctuation">:</span> <span class="token string">&quot;GET&quot;</span><span class="token punctuation">,</span>
     headers<span class="token punctuation">:</span> <span class="token punctuation">{</span>
       <span class="token string">&quot;Authorization&quot;</span><span class="token punctuation">:</span> <span class="token template-string"><span class="token string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>access_token<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">,</span>
       <span class="token string">&quot;Content-Type&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;application/json; charset=utf-8&quot;</span>
@@ -66,6 +68,6 @@ grant_type=authorization_code
         </a>
         →
       </span></p></div> </div> <!----></div></div>
-    <script src="/oauth2/assets/js/app.e698d9b6.js" defer></script><script src="/oauth2/assets/js/6.7d459495.js" defer></script>
+    <script src="/oauth2/assets/js/app.35c48a3e.js" defer></script><script src="/oauth2/assets/js/6.be5a13f6.js" defer></script>
   </body>
 </html>
